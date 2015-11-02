@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+
+\usepackage{graphicx}    % needed for including graphics e.g. EPS, PS
+\usepackage{pst-sigsys}
+
+ \topmargin -1cm        % read Lamport p.163
+ \oddsidemargin -0.04cm   % read Lamport p.163
+ \evensidemargin -0.04cm  % same as oddsidemargin but for left-hand pages
+ \textwidth 16.59cm
+ \textheight 21.94cm 
+ %\pagestyle{empty}       % Uncomment if don't want page numbers
+ \parskip 7.2pt           % sets spacing between paragraphs
+ %\renewcommand{\baselinestretch}{1.5} 	% Uncomment for 1.5 spacing between lines
+ \parindent 0pt		  % sets leading space for paragraphs
+
+\newenvironment{mylisting}
+{\begin{list}{}{\setlength{\leftmargin}{1em}}\item\scriptsize\bfseries}
+{\end{list}}
+
+\newenvironment{mytinylisting}
+{\begin{list}{}{\setlength{\leftmargin}{1em}}\item\tiny\bfseries}
+{\end{list}}
+
+
+\title{System Design Document - rev 1.0\\
+ Animal Simulation}
+\author{Regilyn Feliciano\\
+200325943\\
+ENSE 374\\
+Lab 4}
+
+
+ \begin{document}         
+ % Start your text
+\maketitle
+
+\section{Introduction}
+\subsection{Purpose}
+The purpose is to create a virtual environment in which these animals live.  No external forces such as weather will affect our system.
+\subsection{Design Goals}
+The rules laid out shall be:
+\begin{itemize}
+  \item World is 150 kms square.  Carve up the world into a grid of 150/150 (2D environment)
+  \item Animals without wings can travel three kms in a day. (3 grid locations)
+  \item Animals with wings can travel 5kms. 
+  \item Insects can travel 1km.
+  \item Everything must eat within two days.
+  \item No reproducing of any kind.  Everything will die.
+  \item Print out only what is living at each location.
+\end{itemize}
+The food chain goes as follows:
+\begin{itemize}
+\item Trees/Shrubs are at the bottom of the food chain. They are eaten by caterpillars, blue jays, mice, squirrels, and deer.
+\item Grass is another "animal" at the bottom of the food chain. Grass is eaten by deer, mice, and rabbits.
+\item Caterpillars and grasshoppers are eaten by bluejays.
+\item Bluejays, mice, squirrels, and rabbits are eaten by foxes.
+\item Mice and squirrels are eaten by hawks.
+\item Rabbits and deer are eaten by wolves.
+\end{itemize}
+%\subsection{Definitions, acronyms, and abbreviations}
+
+%\subsection{References}
+
+%\subsection{Overview}
+
+\section{Current software architecture}
+% New design
+The second section describes the architecture of the system being replaced. If there is no previous system, this section can be replaced by a survey of current architectures for similar systems. The purpose of this section is to make explicit the background information that system architects used, their assumptions, and common issues the new system will address.
+
+%/////
+% PROPOSED SOFTWARE ARCHITECTURE 
+%   overview, subsystem decomp, hard/software mapping, persistent data management, access control and security, global software control, and boundary conditions
+\section{ Proposed software architecture}
+\subsection{Overview}
+The programming language is Java and the application will run on a personal computer.
+\subsection{Subsystem decomposition}
+UML class diagram.
+%\subsection{Hardware/software mapping}
+%Hardware/software mapping describes how subsystems are assigned to hardware and off-the-shelf components. It also lists the issues introduced by multiple nodes and software reuse.
+%\subsection{Persistent data management}
+%Persistent data management describes the persistent data stored by the system and the data management infrastructure required for it. This section typically includes the description of data schemes, the selection of a database, and the description of the encapsulation of the database.
+%\subsection{Access control and security}
+%Access control and security describes the user model of the system in terms of anaccess matrix. This section also describes security issues, such as the selection of an authentication mechanism, the use of encryption, and the management of keys.
+%\subsection{Global software control}
+%Global software control describes how the global software control is implemented. In particular, this section should describe how requests are initiated and how subsystems synchronize. This section should list and address synchronization and concurrency issues.
+\subsection{Boundary conditions}
+When world is created the user shall be allowed to populate the world. If a user inputs far too many items an error shall be received.
+
+%////
+%   Subsystem services glossary
+%
+%\section{Subsystem services glossary}
+%The fourth section, Subsystem services, describes the services provided by each subsystem in terms of operations. Although this section is usually empty or incomplete in the first versions of the SDD, this section serves as a reference for teams for the boundaries between their subsystems. The interface of each subsystem is derived from this section and detailed in the Object Design Document.
+
+ % Stop your text
+ \end{document}
